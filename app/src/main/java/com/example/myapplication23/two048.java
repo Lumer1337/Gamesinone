@@ -16,11 +16,11 @@ import android.content.DialogInterface;
 public class two048 extends AppCompatActivity {
     private float x1,x2,y1,y2;
     static final int MIN_DISTANCE = 350;
-    private int[][] grid = new int[4][4];
-    public int score =0;
-    public int moves=0;
-    int randomX;
-    int randomY;
+    private int[][] grid = new int[4][4];         //Поле
+    public int score =0;           //Счёт
+    public int moves=0;            //Количество ходов
+    int randomX;         //Рандом по X
+    int randomY;         //Рандом по Y
     public View phon;
 
 
@@ -68,30 +68,24 @@ public class two048 extends AppCompatActivity {
                 float deltaY = y2 - y1;
                 float deltaX = x2 - x1;
                 if (Math.abs(deltaX) > MIN_DISTANCE && deltaX > 0){
-                    // Toast.makeText(this, "left2right swipe", Toast.LENGTH_SHORT).show();
                     onSwipeRight();
                     update();
                     randomSpawn();
                     moves++;
-
                 }
                 else if(Math.abs(deltaX) > MIN_DISTANCE && deltaX < 0){
-                    //Toast.makeText(this, "right2left swipe", Toast.LENGTH_SHORT).show();
                     onSwipeLeft();
                     update();
                     randomSpawn();
                     moves++;
                 }
-
                 if (Math.abs(deltaY) > MIN_DISTANCE && deltaY > 0){
-                    // Toast.makeText(this, "up2down swipe", Toast.LENGTH_SHORT).show();
                     onSwipeDown();
                     update();
                     randomSpawn();
                     moves++;
                 }
                 else if(Math.abs(deltaY) > MIN_DISTANCE && deltaY < 0){
-                    //Toast.makeText(this, "down2up swipe", Toast.LENGTH_SHORT).show();
                     onSwipeUp();
                     update();
                     randomSpawn();
@@ -101,21 +95,19 @@ public class two048 extends AppCompatActivity {
         }
         return super.onTouchEvent(event);
     }
-
-    /*
-     --- Game Action Functions ---
-     */
-
-    public void onSwipeUp() {
+    public void onSwipeUp() {           //Метод, если игрок проводит вверх
         for (int x = 0; x < grid.length; x++) {
             for (int i = 0; i < grid[grid.length - 1].length; i++) {
                 for (int k = grid.length - 1; k > 0; k--) {
                     try{
-                        if (grid[k][i] == grid[k - 1][i]) {
+                        if (grid[k][i] == grid[k - 1][i])
+                        {
                             grid[k - 1][i] = grid[k][i] + grid[k - 1][i];
                             grid[k][i] = 0;
                             score += grid[k-1][i];
-                        } else if (grid[k - 1][i] == 0) {
+                        }
+                        else if (grid[k - 1][i] == 0)
+                        {
                             grid[k - 1][i] = grid[k][i];
                             grid[k][i] = 0;
                         }
@@ -126,17 +118,18 @@ public class two048 extends AppCompatActivity {
             }
         }
     }
-
-    public void onSwipeDown() {
+    public void onSwipeDown() {       //Метод, если игрок проводит вниз
         for (int x = 0; x < grid.length; x++) {
             for (int i = 0; i < grid[grid.length - 1].length; i++) {
                 for (int k = 0; k < grid.length - 1; k++) {
                     try{
-                        if (grid[k][i] == grid[k + 1][i]) {
+                        if (grid[k][i] == grid[k + 1][i])
+                        {
                             grid[k + 1][i] = grid[k][i] + grid[k + 1][i];
                             grid[k][i] = 0;
                             score += grid[k+1][i];
-                        } else if (grid[k + 1][i] == 0) {
+                        }
+                        else if (grid[k + 1][i] == 0) {
                             grid[k + 1][i] = grid[k][i];
                             grid[k][i] = 0;
                         }
@@ -147,18 +140,18 @@ public class two048 extends AppCompatActivity {
             }
         }
     }
-
-
-    public void onSwipeLeft() {
+    public void onSwipeLeft() {      //Метод, если игрок проводит влево
         for (int x = 0; x < grid.length; x++) {
             for (int k = 0; k < grid[grid.length - 1].length; k++) {
                 for (int i = grid.length - 1; i > 0; i--) {
                     try {
-                        if (grid[k][i] == grid[k][i - 1]) {
+                        if (grid[k][i] == grid[k][i - 1])
+                        {
                             grid[k][i - 1] = grid[k][i] + grid[k][i - 1];
                             grid[k][i] = 0;
                             score += grid[k][i - 1];
-                        } else if (grid[k][i - 1] == 0) {
+                        }
+                        else if (grid[k][i - 1] == 0) {
                             grid[k][i - 1] = grid[k][i];
                             grid[k][i] = 0;
                         }
@@ -169,35 +162,27 @@ public class two048 extends AppCompatActivity {
             }
         }
     }
-
-    public void onSwipeRight() {
+    public void onSwipeRight() {       //Метод, если игрок проводит вправо
         for (int x = 0; x < grid.length; x++) {
             for (int k = 0; k < grid[grid.length - 1].length; k++) {
                 for (int i = 0; i < grid.length - 1; i++) {
                     try{
-                        if (grid[k][i] == grid[k][i + 1]) {
+                        if (grid[k][i] == grid[k][i + 1])
+                        {
                             grid[k][i + 1] = grid[k][i] + grid[k][i + 1];
                             grid[k][i] = 0;
                             score += grid[k][i+1];
-                        } else if (grid[k][i + 1] == 0) {
+                        }
+                        else if (grid[k][i + 1] == 0) {
                             grid[k][i + 1] = grid[k][i];
                             grid[k][i] = 0;
                         }
                     } catch (Exception e) {
-
                     }
-
                 }
             }
         }
     }
-
-
-    /*
-    --- Helper Methods ---
-     */
-
-
     public void update(){
         for(int i =0;i<grid.length;i++){
             for(int k = 0; k<grid[i].length;k++){
@@ -255,8 +240,6 @@ public class two048 extends AppCompatActivity {
                 }
             }
         }
-
-
         TextView tv1 = (TextView)findViewById(R.id.score);
         String scoreStr = "Счёт - " + String.valueOf(score);
         tv1.setText(scoreStr);
@@ -265,7 +248,6 @@ public class two048 extends AppCompatActivity {
         String movesStr = "Количество ходов - " + String.valueOf(moves);
         tv2.setText(movesStr);
     }
-
     public void initialize(){
         for(int i=0;i<grid.length;i++){
             for(int k=0;k<grid[i].length;k++){
@@ -273,7 +255,6 @@ public class two048 extends AppCompatActivity {
             }
         }
     }
-
     public int findID(String input) {
         String in = input;
         switch (in) {
@@ -312,8 +293,6 @@ public class two048 extends AppCompatActivity {
         }
         return 0;
     }
-
-
     public boolean isSpaceEmpty()
     {
         for(int i = 0; i< grid.length; i++)
@@ -328,7 +307,6 @@ public class two048 extends AppCompatActivity {
         }
         return false;
     }
-
     public boolean canCombine()
     {
         for(int k =0; k<grid[grid.length-1].length;k++){
@@ -347,12 +325,10 @@ public class two048 extends AppCompatActivity {
         }
         return false;
     }
-
     public void randomCords(){
         randomX = (int) (Math.random() * 4);
         randomY = (int) (Math.random() * 4);
     }
-
     // TODO: spawn in empty tiles only
     public void randomSpawn(){
         randomCords();
