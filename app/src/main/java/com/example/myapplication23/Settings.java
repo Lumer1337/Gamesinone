@@ -3,6 +3,7 @@ package com.example.myapplication23;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -12,19 +13,21 @@ import android.widget.RelativeLayout;
 
 public class Settings extends AppCompatActivity {
     public RelativeLayout relativeLayout;
+    public SharedPreferences pref;
+    public RelativeLayout phon;
 
-    public int getRelativeLayout() {
-        return relativeLayout.getSolidColor();
-    }
-
-    public void setRelativeLayout(RelativeLayout relativeLayout) {
-        this.relativeLayout = relativeLayout;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        phon = findViewById(R.id.rlVar1);
+
+        SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
+        int bg = sharedPref.getInt("background", android.R.color.white);
+        phon.setBackgroundResource(bg);
+
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -34,6 +37,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+
                     Intent intent = new Intent(Settings.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -41,27 +45,24 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        Button button1, button2;
+    }
 
-        button1 = findViewById(R.id.btVar1);
-        button2 = findViewById(R.id.btVar2);
-        relativeLayout = findViewById(R.id.rlVar1);
-        // onClick function for button 1
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // set the color to relative layout
-                relativeLayout.setBackgroundResource(R.color.cool);
-            }
-        });
-        // onClick function for button 2
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // set the color to relative layout
-                relativeLayout.setBackgroundResource(R.color.warm);
-            }
-        });
+    public void onClickbtVar1(View view) {
+        relativeLayout.setBackgroundResource(R.color.op1);
+
+        SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
+        SharedPreferences.Editor editor2 = sharedPref.edit();
+        editor2.putInt("background", R.drawable.krasivii);
+        editor2.apply();
+    }
+
+    public void onClickbtVar2(View view) {
+        relativeLayout.setBackgroundResource(R.color.op1);
+
+        SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
+        SharedPreferences.Editor editor2 = sharedPref.edit();
+        editor2.putInt("background", R.drawable.grey1);
+        editor2.apply();
     }
 
     @Override

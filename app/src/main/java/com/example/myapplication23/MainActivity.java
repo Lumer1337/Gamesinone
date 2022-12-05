@@ -3,6 +3,7 @@ package com.example.myapplication23;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,13 +14,22 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    SharedPreferences mSettings;
     private long backPressedTime;
+    public View phon;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        phon = findViewById(R.id.Phon);
+
+
+        SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
+        int bg = sharedPref.getInt("background", android.R.color.white);
+        phon.setBackgroundResource(bg);
+
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);

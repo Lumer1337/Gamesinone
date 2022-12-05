@@ -5,7 +5,7 @@
     android:id="@+id/Phon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="@color/color_3"
     tools:context=".MainActivity">
 
     <TextView
@@ -25,12 +25,12 @@
         android:id="@+id/Buttonstart"
         android:layout_width="150dp"
         android:layout_height="55dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="316dp"
         android:background="@drawable/style_btn_stroke_black95_press_white"
         android:text="@string/tet"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,7 @@
         android:id="@+id/Buttonexit"
         android:layout_width="150dp"
         android:layout_height="55dp"
-        android:layout_marginTop="484dp"
+        android:layout_marginTop="460dp"
         android:background="@drawable/style_btn_stroke_black95_press_white"
         android:text="@string/ButtonExit"
         android:textSize="15dp"
@@ -64,12 +64,12 @@
         android:id="@+id/tetbutton"
         android:layout_width="150dp"
         android:layout_height="55dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="316dp"
         android:background="@drawable/style_btn_stroke_black95_press_white"
         android:text="@string/two048"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.831"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
