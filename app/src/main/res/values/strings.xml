@@ -21,4 +21,6 @@
     <string name="Prefercolor">Какого цвета, вы бы хотели сделать фон?</string>
     <string name="Blue">Голубой</string>
     <string name="Pink">Розовый</string>
+    <string name="tet">Тетрис</string>
+    <string name="two048">2048</string>
 </resources>

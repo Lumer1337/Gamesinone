@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#979797"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="25dp"
-        android:text="Score - "
+        android:text="Счёт - "
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="80dp"
-        android:text="Moves - "
+        android:text="Количество ходов - "
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -301,5 +302,16 @@
                 app:srcCompat="@drawable/zero" />
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/ver_button"
+        android:layout_width="277dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="136dp"
+        android:background="@drawable/style_btn_stroke_black95_press_white"
+        android:text="Вернуться в меню"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

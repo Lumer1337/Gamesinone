@@ -1,7 +1,6 @@
 package com.example.myapplication23;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
@@ -40,7 +38,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button buttongame = (Button) findViewById(R.id.ButtonStart);
+        Button buttontet = (Button) findViewById(R.id.tetbutton);
+        buttontet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try
+                {
+                    Intent intent = new Intent(MainActivity.this, two048.class);
+                    startActivity(intent);
+                    finish();
+                }
+                catch (Exception e){}
+            }
+        });
+        Button buttongame = (Button) findViewById(R.id.Buttonstart);
         buttongame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

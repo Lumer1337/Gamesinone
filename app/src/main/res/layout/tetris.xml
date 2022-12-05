@@ -1892,7 +1892,7 @@
         android:id="@+id/vernutca_button"
         android:layout_width="382dp"
         android:layout_height="32dp"
-        android:background="#DB09FF"
+        android:background="@drawable/style_btn_stroke_black95_press_white"
         android:text="Вернуться"
         android:textColor="#000000" />
 

@@ -1,8 +1,12 @@
 package com.example.myapplication23;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.AlertDialog;
@@ -24,6 +28,17 @@ public class two048 extends AppCompatActivity {
         setContentView(R.layout.two048);
         initialize();
         randomSpawn();
+        Button buttonset = (Button) findViewById(R.id.ver_button);
+        buttonset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(two048.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e) {}
+            }
+        });
     }
 
 
@@ -235,11 +250,11 @@ public class two048 extends AppCompatActivity {
 
 
         TextView tv1 = (TextView)findViewById(R.id.score);
-        String scoreStr = "Score - " + String.valueOf(score);
+        String scoreStr = "Счёт - " + String.valueOf(score);
         tv1.setText(scoreStr);
 
         TextView tv2 = (TextView)findViewById(R.id.moves);
-        String movesStr = "Moves - " + String.valueOf(moves);
+        String movesStr = "Количество ходов - " + String.valueOf(moves);
         tv2.setText(movesStr);
     }
 
@@ -338,8 +353,8 @@ public class two048 extends AppCompatActivity {
                 randomSpawn();
             } else{
                 if(!canCombine()){
-                    new AlertDialog.Builder(this).setTitle("Game Over")
-                            .setMessage("Score - " + score)
+                    new AlertDialog.Builder(this).setTitle("Вы проиграли(")
+                            .setMessage("Счёт - " + score)
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     initialize();
