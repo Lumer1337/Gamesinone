@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 public class two048 extends AppCompatActivity {
     private float x1,x2,y1,y2;
@@ -22,6 +23,7 @@ public class two048 extends AppCompatActivity {
     int randomX;         //Рандом по X
     int randomY;         //Рандом по Y
     public View phon;
+    private long backPressedTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -348,5 +350,14 @@ public class two048 extends AppCompatActivity {
             grid[randomY][randomX] = 2;
             update();
         }
+    }
+    public void onBackPressed(){
+        if (backPressedTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed();
+            return;
+        }else {
+            Toast.makeText(getBaseContext(),"Нажмите ещё раз, чтобы выйти", Toast.LENGTH_SHORT).show();
+        }
+        backPressedTime = System.currentTimeMillis();
     }
 }

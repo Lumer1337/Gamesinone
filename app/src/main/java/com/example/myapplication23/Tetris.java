@@ -35,6 +35,7 @@ public class Tetris extends AppCompatActivity {
     private boolean isRotateRightPressedOneTime;
     private boolean isRotateRightPressedTwoTimes;
     public View phon;
+    private long backPressedTime;
 
     private boolean isRotateRightPressedThreeTimes;
 
@@ -1740,5 +1741,14 @@ public class Tetris extends AppCompatActivity {
                 counter++;
             }
         }
+    }
+    public void onBackPressed(){
+        if (backPressedTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed();
+            return;
+        }else {
+            Toast.makeText(getBaseContext(),"Нажмите ещё раз, чтобы выйти", Toast.LENGTH_SHORT).show();
+        }
+        backPressedTime = System.currentTimeMillis();
     }
 }
