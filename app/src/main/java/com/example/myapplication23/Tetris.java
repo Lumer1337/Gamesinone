@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -33,6 +34,7 @@ public class Tetris extends AppCompatActivity {
     private int randomBlock = 0;
     private boolean isRotateRightPressedOneTime;
     private boolean isRotateRightPressedTwoTimes;
+    public View phon;
 
     private boolean isRotateRightPressedThreeTimes;
 
@@ -40,6 +42,10 @@ public class Tetris extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tetris);
+        phon = findViewById(R.id.phon1);
+        SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
+        int bg = sharedPref.getInt("background", android.R.color.white); // the second parameter will be fallback if the preference is not found
+        phon.setBackgroundResource(bg);
         initialize();
         startGame();
         Button buttonset = (Button) findViewById(R.id.vernutca_button);

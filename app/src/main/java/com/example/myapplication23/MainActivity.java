@@ -25,11 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         phon = findViewById(R.id.Phon);
 
-
         SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
-        int bg = sharedPref.getInt("background", android.R.color.white);
+        int bg = sharedPref.getInt("background", android.R.color.white); // the second parameter will be fallback if the preference is not found
         phon.setBackgroundResource(bg);
-
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);

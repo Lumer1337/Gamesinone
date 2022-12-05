@@ -3,6 +3,7 @@ package com.example.myapplication23;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,12 +21,19 @@ public class two048 extends AppCompatActivity {
     public int moves=0;
     int randomX;
     int randomY;
+    public View phon;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.two048);
+
+        phon = findViewById(R.id.main);
+        SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
+        int bg = sharedPref.getInt("background", android.R.color.white); // the second parameter will be fallback if the preference is not found
+        phon.setBackgroundResource(bg);
+
         initialize();
         randomSpawn();
         Button buttonset = (Button) findViewById(R.id.ver_button);

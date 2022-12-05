@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 
 public class Settings extends AppCompatActivity {
     public RelativeLayout relativeLayout;
-    public SharedPreferences pref;
     public RelativeLayout phon;
 
 
@@ -21,12 +20,13 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
+        relativeLayout = findViewById(R.id.rlVar1);
         phon = findViewById(R.id.rlVar1);
 
         SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
-        int bg = sharedPref.getInt("background", android.R.color.white);
+        int bg = sharedPref.getInt("background", android.R.color.white); // the second parameter will be fallback if the preference is not found
         phon.setBackgroundResource(bg);
+
 
 
         Window w = getWindow();
@@ -48,11 +48,11 @@ public class Settings extends AppCompatActivity {
     }
 
     public void onClickbtVar1(View view) {
-        relativeLayout.setBackgroundResource(R.color.op1);
+        relativeLayout.setBackgroundResource(R.color.op2);
 
         SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
         SharedPreferences.Editor editor2 = sharedPref.edit();
-        editor2.putInt("background", R.drawable.krasivii);
+        editor2.putInt("background", R.drawable.gray2);
         editor2.apply();
     }
 
@@ -61,7 +61,7 @@ public class Settings extends AppCompatActivity {
 
         SharedPreferences sharedPref = this.getSharedPreferences("my_prefs", this.MODE_PRIVATE);
         SharedPreferences.Editor editor2 = sharedPref.edit();
-        editor2.putInt("background", R.drawable.grey1);
+        editor2.putInt("background", R.drawable.gray1);
         editor2.apply();
     }
 

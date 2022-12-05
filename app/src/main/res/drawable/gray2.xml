@@ -4,8 +4,7 @@
         <!--            форма-->
         <shape android:shape = "rectangle">
             <!--                сплошной цвет-->
-            <solid android:color = "#979797"/>
-            <!--                радиус закругления углов-->
+            <solid android:color = "#3BB5B5"/>
         </shape>
     </item>
 </selector>
