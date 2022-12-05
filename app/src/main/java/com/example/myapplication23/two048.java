@@ -22,8 +22,6 @@ public class two048 extends AppCompatActivity {
     int randomX;         //Рандом по X
     int randomY;         //Рандом по Y
     public View phon;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +46,6 @@ public class two048 extends AppCompatActivity {
             }
         });
     }
-
-
-    /*
-     * Detect Swipes
-     */
-
     @Override
     public boolean onTouchEvent(MotionEvent event){
         switch(event.getAction()) {

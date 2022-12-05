@@ -8,7 +8,7 @@
     <string name="Gamestart">Начать игру</string>
     <string name="ButtonSettings">Настройки</string>
     <string name="ButtonExit">Выход из игры</string>
-    <string name="Supermegaigra">Супер мега игра</string>
+    <string name="Supermegaigra">Классические игры</string>
     <string name="title_activity_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

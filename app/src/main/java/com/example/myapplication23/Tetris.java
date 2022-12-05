@@ -75,14 +75,12 @@ public class Tetris extends AppCompatActivity {
         populateIntegerHashMapWithInitializedLinearLayouts();
         populateBooleanHashMapWithBooleanValuesIfEachLinearLayoutIsEmpty();
     }
-
     private void buttonsSetOnClickListener() {
         linearLayoutLeftSetOnClickListener();
         linearLayoutRightSetOnClickListener();
         linearLayoutRotateSetOnClickListener();
         linearLayoutDownSetOnClickListener();
     }
-
     private void linearLayoutDownSetOnClickListener() {
         linear_layout_down.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +91,6 @@ public class Tetris extends AppCompatActivity {
             }
         });
     }
-
     private void linearLayoutRotateSetOnClickListener() {
         linear_layout_rotate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +99,6 @@ public class Tetris extends AppCompatActivity {
             }
         });
     }
-
     private void linearLayoutLeftSetOnClickListener() {
         linear_layout_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +109,6 @@ public class Tetris extends AppCompatActivity {
             }
         });
     }
-
     private void linearLayoutRightSetOnClickListener() {
         linear_layout_right.setOnClickListener(new View.OnClickListener() {
             @Override
