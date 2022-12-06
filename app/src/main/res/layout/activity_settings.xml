@@ -45,15 +45,15 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="256dp"
+            android:layout_height="84dp"
             android:layout_below="@+id/tvVar1"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="47dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="325dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="497dp"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -81,8 +81,9 @@
                 android:text="@string/Pink"
                 android:textSize="15dp" />
 
-
         </LinearLayout>
+
+
 
     </RelativeLayout>
 
